@@ -30,30 +30,48 @@ class _OutputDataState extends State<OutputData> {
         author: 'Oscar Wilde',
         text: 'The truth is rarely pure and never simple'),
   ];
+
+  Widget quoteTemplate(quote) {
+    return Card(
+      margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              quote.text,
+              style: const TextStyle(
+                fontSize: 18.0,
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(height: 6.0),
+            Text(
+              quote.author,
+              style: const TextStyle(fontSize: 14.0, color: Colors.black),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: const Color.fromARGB(255, 199, 199, 199),
       appBar: AppBar(
         title: const Text(
           'Cool Quotes',
         ),
         centerTitle: true,
-        backgroundColor: Colors.grey,
+        backgroundColor: Color.fromARGB(255, 84, 11, 25),
       ),
       body: Column(
         children: quotes.map(
           (quote) {
-            return Padding(
-              padding: const EdgeInsets.fromLTRB(30.0, 30.0, 0.0, 10.0),
-              child: Text(
-                '${quote.text}, \n\n -${quote.author}',
-                style: const TextStyle(
-                  color: Colors.white,
-                  letterSpacing: 3.0,
-                ),
-              ),
-            );
+            return quoteTemplate(quote);
           },
         ).toList(),
       ),
