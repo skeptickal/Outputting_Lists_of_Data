@@ -1,8 +1,8 @@
 class Quote {
-  String? text;
-  String? author;
+  final String text;
+  final String author;
 
-  Quote({this.text, this.author});
+  Quote({required this.text, required this.author});
 }
 
 Quote myquote = Quote(author: 'hello', text: 'world');
